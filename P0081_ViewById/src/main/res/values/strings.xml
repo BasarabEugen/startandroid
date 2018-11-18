@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ViewById</string>
+    <string name="button">Button</string>
+    <string name="myText">Hello from Android</string>
+    <string name="myFriends">Hello my friends</string>
+    <string name="chb">CheckBox</string>
+</resources>
