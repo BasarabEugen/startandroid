@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        lvMain = (ListView) findViewById(R.id.lvMain);
+        lvMain = findViewById(R.id.lvMain);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
 
         // создаем Header и Footer
@@ -47,17 +47,26 @@ public class MainActivity extends Activity {
 
     // формирование списка
     void fillList() {
+        lvMain.addHeaderView(header1);
+        lvMain.addHeaderView(header2, "some text for header 2", false);
+        lvMain.addFooterView(footer1);
+        lvMain.addFooterView(footer2, "some text for footer 2", false);
+        lvMain.setAdapter(adapter);
     }
 
     // нажатие кнопки
     public void onclick(View v) {
+
+//        lvMain.removeHeaderView(header2);
+//        lvMain.removeFooterView(header2);
+
         Object obj;
         HeaderViewListAdapter hvlAdapter = (HeaderViewListAdapter) lvMain.getAdapter();
         obj = hvlAdapter.getItem(1);
         Log.d(LOG_TAG, "hvlAdapter.getItem(1) = " + obj.toString());
         obj = hvlAdapter.getItem(4);
         Log.d(LOG_TAG, "hvlAdapter.getItem(4) = " + obj.toString());
-
+//
         ArrayAdapter<String> alAdapter;
         alAdapter = (ArrayAdapter<String>) hvlAdapter.getWrappedAdapter();
         obj = alAdapter.getItem(1);
